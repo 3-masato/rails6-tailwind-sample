@@ -1,0 +1,5 @@
+{
+  const el = document.getElementById("<%= @task.hashed_id %>");
+  el.innerHTML = "<%= j(render "tasks/task", task: @task) %>";
+  console.log("updated");
+}

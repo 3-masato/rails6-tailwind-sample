@@ -3,9 +3,6 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
   end
 
-  def show
-  end
-
   def index
     @tasks = Task.all
   end
@@ -17,7 +14,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to tasks_path, notice: "Success"
     else
-      render :index
+      render :error
     end
   end
 
@@ -28,6 +25,8 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task = Task.find(params[:id])
+    render :error unless @task.update(task_params)
   end
 
   private

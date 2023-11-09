@@ -1,0 +1,6 @@
+{
+  const el = document.getElementById("message");
+  el.innerHTML = "<%= j(render "tasks/message", message: @task.errors.full_messages.join(","), type: :error) %>";
+
+  console.log("error");
+}
