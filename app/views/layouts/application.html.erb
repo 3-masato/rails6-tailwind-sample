@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="light">
   <head>
     <title>Rails6TailwindSample</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -11,7 +11,16 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="bg-slate-800">
-    <%= yield %>
+  <body class="bg-slate-50 dark:bg-slate-800">
+    <header>
+      <div class="mx-[10vw] flex justify-between align-center">
+        <div></div>
+        <div id="toggle-theme-switch" aria-label="Toggle Theme Mode"></div>
+      </div>
+    </header>
+    <main class="prose mx-auto my-4">
+      <%= yield %>
+    </main>
+    <footer></footer>
   </body>
 </html>
