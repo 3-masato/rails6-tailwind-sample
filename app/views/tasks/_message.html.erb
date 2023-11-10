@@ -1,3 +1,7 @@
-<div class="font-bold text-sm <%= type == :error ? "text-red-800 dark:text-red-500" : "text-teal-800 dark:text-teal-500" %>">
+<% color = type == :error ? "bg-red-400/70 dark:bg-red-800/70" : "bg-teal-400/70 dark:bg-teal-800/70" %>
+<div class="<%= color %> font-bold text-sm flex items-center gap-x-2 rounded-sm w-64 p-2">
+  <% if type == :error %>
+    <i class="fa-solid fa-triangle-exclamation"></i>
+  <% end %>
   <%= message %>
 </div>

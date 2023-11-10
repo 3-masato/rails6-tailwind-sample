@@ -1,0 +1,30 @@
+<table>
+  <tbody>
+    <% tasks.each do |task| %>
+      <tr class="h-12">
+        <td class="w-[32rem]">
+          <div class="font-medium flex items-center" id="<%= task.hashed_id %>">
+            <%= render "tasks/task", task: task %>
+          </div>
+        </td>
+        <td>
+          <div class="text-xs text-slate-700 dark:text-slate-500"><%= l task.created_at %></div>
+        </td>
+        <td>
+          <%= render(ButtonComponent.new(
+            style: :outline,
+            color: :red,
+            options: {
+              path: task_path(task),
+              method: :delete,
+              remote: true,
+              class: "w-24 h-8 gap-x-2"
+            }
+          )) do %>
+            <i class="fa-solid fa-trash-can"></i>Destroy
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

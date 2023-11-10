@@ -1,8 +1,14 @@
 <div class="flex items-center gap-2">
-  <div class="w-96"><%= task.title %></div>
-  <%= link_to edit_task_path(task),
-    remote: true,
-    class: "focus-ring disabled-gray no-underline w-8 h-8 flex justify-center items-center rounded-sm border border-blue-500 text-blue-500 hover:border-blue-400 hover:text-blue-400" do %>
+  <div class="w-96 py-2 px-3 leading-6 border border-transparent"><%= task.title %></div>
+  <%= render(ButtonComponent.new(
+    style: :outline,
+    color: :blue,
+    options: {
+      path: edit_task_path(task),
+      remote: true,
+      class: "w-8 h-8"
+    }
+  )) do %>
     <i class="fa-solid fa-pencil"></i>
   <% end %>
 </div>

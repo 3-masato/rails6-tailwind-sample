@@ -1,9 +1,18 @@
-<div class="">
+<div>
   <%= form_with model: task, local: false do |f| %>
     <div id="message"></div>
     <div class="flex items-center gap-2">
-      <%= f.text_field :title, class: "focus-ring disabled-gray py-3 px-4 block w-full border-gray-200 rounded-sm text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-gray-400" %>
-      <%= f.submit "Add Task", class: "focus-ring disabled-gray py-2 px-3 inline-flex items-center text-sm font-semibold cursor-pointer rounded-sm border border-transparent bg-blue-600 text-white hover:bg-blue-700" %>
+      <%= f.text_field :title, id: "task-input", class: "py-3 px-4 block w-full border-gray-200 rounded-sm text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700" %>
+      <%= render(ButtonComponent.new(
+        style: :solid,
+        color: :blue,
+        options: {
+          type: "submit",
+          class: "w-32 h-8"
+        }
+      )) do %>
+        Add Task
+      <% end %>
     </div>
   <% end %>
 </div>

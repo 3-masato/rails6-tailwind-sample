@@ -11,22 +11,18 @@ class TasksController < ApplicationController
     @task = Task.new(task_params)
     @tasks = Task.all
 
-    if @task.save
-      redirect_to tasks_path, notice: "Success"
-    else
-      render :error
-    end
+    render :error_create unless @task.save
   end
 
   def destroy
     task = Task.find(params[:id])
     task&.destroy
-    redirect_to tasks_path
+    @tasks = Task.all
   end
 
   def update
     @task = Task.find(params[:id])
-    render :error unless @task.update(task_params)
+    render :error_update unless @task.update(task_params)
   end
 
   private
