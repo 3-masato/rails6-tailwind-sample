@@ -1,7 +1,6 @@
 {
   const el = document.getElementById("<%= @task.hashed_id %>");
   el.innerHTML = "<%= j(render "tasks/edit", task: @task) %>";
-  console.log("edit");
 
   const cancelButton = document.getElementById("cancel-<%= @task.hashed_id %>");
   function cancelEdit() {
